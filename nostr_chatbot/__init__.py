@@ -15,12 +15,13 @@ class Chatbot:
     def __init__(
             self,
             private_key:str,
-            recipient_pubkey,
+            recipient_pubkey:str,
             setup:bool=False,
-            relay=["wss://nostr-pub.wellorder.net","wss://relay.damus.io","wss://nos.lol"]
+            relay:list=["wss://nostr-pub.wellorder.net","wss://relay.damus.io","wss://nos.lol"]
         ) -> None:
         """
-        recipient_pubkey str: npub
+        :param str private_key: private_key
+        :param str recipient_pubkey: recipient public key (npub)
         """
         self.relay = relay
         if recipient_pubkey==None:
@@ -80,6 +81,9 @@ class Chatbot:
         self.history[self.recipient_pubkey.bech32()]["recipient"]=sorted(self.history[self.recipient_pubkey.bech32()]["recipient"], key=lambda d: d.created_at)
 
     def send(self, message:str):
+        """
+        :param str message: message
+        """
         dm = EncryptedDirectMessage(
             recipient_pubkey=self.recipient_pubkey.hex(),
             cleartext_content=message
@@ -96,6 +100,9 @@ class Chatbot:
         self.relay_manager2.close_subscription_on_all_relays(id=self.subscription_id2)
 
     def receive(self)->str:
+        """
+        receive a message from recipient.
+        """
         while self.relay_manager2.message_pool.has_events():
             event_msg = self.relay_manager2.message_pool.get_event()
             if self.recipient_pubkey.bech32() not in self.history.keys():
