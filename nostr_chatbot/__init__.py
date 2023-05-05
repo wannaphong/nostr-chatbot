@@ -98,7 +98,9 @@ class Chatbot:
     def receive(self)->str:
         while self.relay_manager2.message_pool.has_events():
             event_msg = self.relay_manager2.message_pool.get_event()
-            if event_msg.event.created_at<self.history[self.recipient_pubkey.bech32()]["bot"][-1].created_at:
+            if self.recipient_pubkey.bech32() not in self.history.keys():
+                pass
+            elif event_msg.event.created_at<self.history[self.recipient_pubkey.bech32()]["bot"][-1].created_at:
                 return None
             self.history[self.recipient_pubkey.bech32()]["recipient"].append(event_msg.event)
         if self.history[self.recipient_pubkey.bech32()]["recipient"]==[]:
