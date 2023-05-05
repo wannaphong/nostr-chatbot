@@ -1,0 +1,1 @@
+Nostr come from https://github.com/jeffthibault/python-nostr

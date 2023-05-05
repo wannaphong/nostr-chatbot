@@ -1,1 +1,3 @@
-# nostr-chatbot
+# Nostr-ChatBot
+
+Make Nostr ChatBot from python
