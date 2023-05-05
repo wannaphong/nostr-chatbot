@@ -2,13 +2,13 @@ import time
 import uuid
 import logging
 from collections import defaultdict
-from nostr.key import PrivateKey,PublicKey
-from nostr.filter import Filter, Filters
-from nostr.event import Event, EventKind
-from nostr.relay_manager import RelayManager
-from nostr.message_type import ClientMessageType
-from nostr.event import EncryptedDirectMessage
-from nostr.relay_manager import RelayManager
+from .nostr.key import PrivateKey,PublicKey
+from .nostr.filter import Filter, Filters
+from .nostr.event import Event, EventKind
+from .nostr.relay_manager import RelayManager
+from .nostr.message_type import ClientMessageType
+from .nostr.event import EncryptedDirectMessage
+from .nostr.relay_manager import RelayManager
 
 
 class Chatbot:
