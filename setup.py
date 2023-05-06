@@ -15,7 +15,7 @@ requirements = [
 
 setup(
     name="nostr-chatbot",
-    version="0.1.0dev1",
+    version="0.1.0dev2",
     description="Nostr chatbotlibrary",
     long_description=readme,
     long_description_content_type="text/markdown",
