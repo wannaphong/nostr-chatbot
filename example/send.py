@@ -1,6 +1,6 @@
 from nostr_chatbot import Chatbot
 
-private_key = b""
+private_key = 'nsec...'
 
 recipient_pubkey = "npub..."
 

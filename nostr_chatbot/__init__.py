@@ -20,15 +20,17 @@ class Chatbot:
             relay:list=["wss://nostr-pub.wellorder.net","wss://relay.damus.io","wss://nos.lol"]
         ) -> None:
         """
-        :param str private_key: private_key
+        :param str private_key: private_key (nsec)
         :param str recipient_pubkey: recipient public key (npub)
+        :param bool setup: load history chat
+        :param list relay: List relay
         """
         self.relay = relay
         if recipient_pubkey==None:
             self.recipient_pubkey = recipient_pubkey
         else:
             self.recipient_pubkey = PublicKey.from_npub(recipient_pubkey)
-        self.private_key = PrivateKey(private_key)
+        self.private_key = PrivateKey.from_nsec(private_key)
         self.relay_manager = RelayManager()
         for i in self.relay:
             self.relay_manager.add_relay(i)
