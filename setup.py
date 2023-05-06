@@ -9,7 +9,7 @@ with open("requirements.txt","r",encoding="utf-8-sig") as f:
 
 setup(
     name="nostr-chatbot",
-    version="0.1.0",
+    version="0.1.0dev1",
     description="Nostr chatbotlibrary",
     long_description=readme,
     long_description_content_type="text/markdown",
