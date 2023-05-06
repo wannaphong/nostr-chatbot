@@ -4,8 +4,14 @@ from setuptools import find_packages, setup
 with open("README.md","r",encoding="utf-8-sig") as f:
     readme = f.read()
 
-with open("requirements.txt","r",encoding="utf-8-sig") as f:
-    requirements = [i.strip() for i in f.readlines()]
+requirements = [
+    "cffi>=1.15.0",
+    "cryptography>=37.0.4",
+    "pycparser>=2.21",
+    "python-socks>=2.1.1",
+    "secp256k1>=0.14.0",
+    "websocket-client>=1.3.3"
+]
 
 setup(
     name="nostr-chatbot",
